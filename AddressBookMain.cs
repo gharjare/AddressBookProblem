@@ -10,10 +10,10 @@ namespace AddressBookPracticeProblem
 {
     public class AddressBookMain
     {
-        List<Contact> contacts = new List<Contact>();
+        public List<Contact> contacts = new List<Contact>();
         public void AddContact()
         {
-          Contact contacts = new Contact();
+            Contact contacts = new Contact();
             Console.WriteLine("Enter first name");
             contacts.FirstName = Console.ReadLine();
             Console.WriteLine("Enter last name");
@@ -34,43 +34,21 @@ namespace AddressBookPracticeProblem
             Console.WriteLine("Contacts Added SuccessFully");
 
         }
-        public void EditContact()
+        public static void DeleteContact()
         {
-            Console.WriteLine("Enter the first name you have to want to edit");
-            string FirstName = Console.ReadLine();
+            List<Contact> contacts = new List<Contact>();
+            Console.WriteLine("Enter the first name");
+            string name = Console.ReadLine();
             foreach (var data in contacts)
             {
-                if (contacts.Contains(data))
+                if (data.FirstName == name)
                 {
-                    if (data.FirstName == FirstName)
-                    {
-                        Console.WriteLine("To edit contacts enter 1.FirstName\n 2.LastName\n 3.Address\n 4.City\n 5.State\n 6.Zipcode\n 7.PhoneNumber\n");
-                        int option = Convert.ToInt32(Console.ReadLine());
+                    contacts.Remove(data);
 
-                        switch (option)
-                        {
-                            case 1:
-                                string firstname = Console.ReadLine();
-                                data.FirstName = FirstName;
-                                break;
-                            case 2:
-                                string lastname = Console.ReadLine();
-                                data.LastName = lastname;
-                                break;
-                            default:
-                                Console.WriteLine("Choose valid option");
-                                break;
-                        }
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("contact edit succsessfully");
-                    }
+                    Console.WriteLine("\nContact delete Successfully");
                 }
 
             }
         }
-        
     }
 }

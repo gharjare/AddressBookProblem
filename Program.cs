@@ -7,7 +7,7 @@
             Console.WriteLine("Welcome to addressbook program");
             AddressBookMain addressBook = new AddressBookMain();
             addressBook.AddContact();
-            addressBook.EditContact();
+            addressBook.DeleteContact();
         }
     }
 }
