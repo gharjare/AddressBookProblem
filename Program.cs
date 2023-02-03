@@ -8,7 +8,8 @@
             AddressBookMain addressBook = new AddressBookMain();
             addressBook.AddContact();
            // addressBook.DeleteContact();
-            addressBook.editContact();
+           // addressBook.editContact();
+            addressBook.AddMultipleContact();
         }
     }
 }
