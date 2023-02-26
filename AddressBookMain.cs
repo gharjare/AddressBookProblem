@@ -235,6 +235,30 @@ namespace AddressBookPracticeProblem
                 Console.WriteLine("Phone Number: " + items.PhoneNumber);
             }
         }
+        public void ReadAndWriteFile()
+        {
+            string filepath = @"C:\Users\Achal\source\repos\AddressBookPracticeProblem\AddressBookPracticeProblem\person.txt";
+            foreach (var data in contacts)
+            {
+                using (StreamWriter sw = File.AppendText(filepath))
+                {
+                    sw.WriteLine("FirastName:" + data.FirstName);
+                    sw.WriteLine("LastName: " + data.LastName);
+                    sw.WriteLine("City: " + data.City);
+                    sw.WriteLine("Zipcode: " + data.Zip);
+                    sw.WriteLine("PhoneNmuber: " + data.PhoneNumber);
+                    sw.Close();
+                }
+                using (StreamReader sr = File.OpenText(filepath))
+                {
+                    string s = " ";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+            }
+        }
     }
     
 }
