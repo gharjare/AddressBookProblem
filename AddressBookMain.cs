@@ -188,6 +188,20 @@ namespace AddressBookPracticeProblem
                 }
             }
         }
+        public void CountPersonByCity()
+        {
+            Console.WriteLine("enter the city to search: ");
+            string cityname = Console.ReadLine();
+            int count = 0;
+            foreach (var pair in book.Keys)
+            {
+                foreach (var items in contacts.FindAll(e => e.City == cityname))
+                {
+                    count++;
+                }
+                Console.WriteLine("No of contacts {0} in city {1}", count, cityname);
+            }
+        }
     }
     
 }

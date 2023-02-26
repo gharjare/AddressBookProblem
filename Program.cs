@@ -45,6 +45,9 @@ namespace AddressBookPracticeProblem
                     case 10:
                         person.ViewPersonsByCity();
                         break;
+                    case 11:
+                        person.DeleteContact();
+                        break;
                 }
                 Console.WriteLine("------------------------------");
             }
