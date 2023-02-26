@@ -48,6 +48,9 @@ namespace AddressBookPracticeProblem
                     case 11:
                         person.DeleteContact();
                         break;
+                    case 12:
+                        person.SortPersonName();
+                        break;
                 }
                 Console.WriteLine("------------------------------");
             }

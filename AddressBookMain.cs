@@ -202,6 +202,17 @@ namespace AddressBookPracticeProblem
                 Console.WriteLine("No of contacts {0} in city {1}", count, cityname);
             }
         }
+        public void SortPersonName()
+        {
+            foreach (var items in contacts.OrderBy(e => e.FirstName))
+            {
+                Console.WriteLine("First Name: " + items.FirstName);
+                Console.WriteLine("Last Name: " + items.LastName);
+                Console.WriteLine("City : " + items.City);
+                Console.WriteLine("Zip : " + items.Zip);
+                Console.WriteLine("Phone Number: " + items.PhoneNumber);
+            }
+        }
     }
     
 }
