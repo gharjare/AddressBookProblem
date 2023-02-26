@@ -39,6 +39,9 @@ namespace AddressBookPracticeProblem
                     case 8:
                         person.DuplicateContact();
                         break;
+                    case 9:
+                        person.SearchPersonByCity();
+                        break;
                 }
                 Console.WriteLine("------------------------------");
             }

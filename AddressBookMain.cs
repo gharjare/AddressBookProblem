@@ -159,6 +159,22 @@ namespace AddressBookPracticeProblem
                 NewUser();
             }
         }
+        public void SearchPersonByCity()
+        {
+            Console.WriteLine("enter the name to search: ");
+            string personName = Console.ReadLine();
+            Console.WriteLine("enter the city to search: ");
+            string cityname = Console.ReadLine();
+            foreach (var pair in book.Keys)
+            {
+                Console.WriteLine("Address Book Name " + pair);
+                foreach (var data in contacts.FindAll(e => e.City == cityname && e.FirstName == personName))
+                {
+                foreach (var item in contacts.FindAll(e => e.City == cityname && e.FirstName == personName))
+                    Console.WriteLine("The Contact Details of " + data.City + " are\n:" + data.FirstName + " " + data.LastName + " " + data.Zip + " " + data.PhoneNumber);
+                }
+            }
+        }
     }
     
 }
