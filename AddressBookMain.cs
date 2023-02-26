@@ -28,12 +28,24 @@ namespace AddressBookPracticeProblem
             Console.WriteLine("Enter zipcode");
             contacts.Zip = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter phonenumber");
-            contacts.PhoneNumber = Console.ReadLine();
+            contacts.PhoneNumber = long.Parse(Console.ReadLine());
             Console.WriteLine("Enter the email");
             contacts.Email = Console.ReadLine();
             this.contacts.Add(contacts);
             Console.WriteLine("Contacts Added SuccessFully");
 
+        }
+        public void listPerson()
+        {
+            foreach (var data in contacts)
+            {
+                Console.WriteLine("FirstName: " + data.FirstName);
+                Console.WriteLine("LastName: " + data.LastName);
+                Console.WriteLine("PhoneNumber: " + data.PhoneNumber);
+                Console.WriteLine("City: " + data.City);
+                Console.WriteLine("Zipcode: " + data.Zip);
+
+            }
         }
         public void editContact()
         {
@@ -128,6 +140,23 @@ namespace AddressBookPracticeProblem
                     Console.WriteLine("Phone Number: " + data.PhoneNumber);
                     Console.WriteLine("EmailID: " + data.Email);
                 }
+            }
+        }
+        public void DuplicateContact()
+        {
+            Console.WriteLine("enter the name to check: ");
+            string personName = Console.ReadLine();
+            Console.WriteLine("Enter phonenumber");
+            long phnno = long.Parse(Console.ReadLine());
+            bool check = contacts.Any(e => e.FirstName == personName && e.PhoneNumber == phnno);
+            if (check)
+            {
+                Console.WriteLine("contact is present");
+            }
+            else
+            {
+                Console.WriteLine("Contact is not present");
+                NewUser();
             }
         }
     }

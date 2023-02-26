@@ -1,17 +1,47 @@
-﻿namespace AddressBookPracticeProblem
+﻿using System;
+
+namespace AddressBookPracticeProblem
 {
     class program
     {
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to addressbook program");
-            AddressBookMain addressBook = new AddressBookMain();
-            addressBook.AddContact();
-            addressBook.DeleteContact();
-            addressBook.editContact();
-            addressBook.AddMultipleContact();
-            addressBook.NewUser();
-            addressBook.DisplayList();
+            AddressBookMain person = new AddressBookMain();
+            while (true)
+            {
+                Console.WriteLine("Enter number: \n 1. create new person \n 2. Display Data \n 3. Edit person Data  \n 4. Delete Person Data \n 5.Add Multiple Contacts  \n 6.Add With UniqueBookName \n 7.Display Dictionary \n 8.Search Duplicate Contacts");
+                Console.WriteLine("Enter the option");
+                int input = Convert.ToInt32(Console.ReadLine());
+                switch (input)
+                {
+                    case 1:
+                        person.AddContact();
+                        break;
+                    case 2:
+                        person.listPerson();
+                        break;
+                    case 3:
+                        person.editContact();
+                        break;
+                    case 4:
+                        person.DeleteContact();
+                        break;
+                    case 5:
+                        person.AddMultipleContact();
+                        break;
+                    case 6:
+                        person.NewUser();
+                        break;
+                    case 7:
+                        person.DisplayList();
+                        break;
+                    case 8:
+                        person.DuplicateContact();
+                        break;
+                }
+                Console.WriteLine("------------------------------");
+            }
         }
     }
 }
