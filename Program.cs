@@ -57,9 +57,16 @@ namespace AddressBookPracticeProblem
                     case 14:
                         person.SortbyZipcode();
                         break;
+                    case 15:
+                        person.ReadAndWriteFile();
+                        break;
+                    case 16:
+                        person.ReadAndWriteCSVFile();
+                        break;
                 }
-                Console.WriteLine("------------------------------");
             }
+                Console.WriteLine("------------------------------");
+            
         }
     }
 }

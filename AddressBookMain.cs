@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Formats.Asn1;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -256,6 +259,32 @@ namespace AddressBookPracticeProblem
                     {
                         Console.WriteLine(s);
                     }
+                }
+            }
+        }
+        public void ReadAndWriteCSVFile()
+        {
+            string exportfilepath = @"E:\C#\AddressBookAssignmentProblem\AddressBookAssignmentProblem\NewFolder\contact.csv";
+            string Importfilepath = @"E:\C#\AddressBookAssignmentProblem\AddressBookAssignmentProblem\NewFolder\contact.csv";
+            using (var record = new StreamReader(exportfilepath))
+            using (var csv = new CsvReader(record, CultureInfo.InvariantCulture))
+            {
+                var item = csv.GetRecords<Contact>();
+                foreach (Contact contact in item)
+                {
+                    Console.WriteLine("FirastName:" + contact.FirstName);
+                    Console.WriteLine("LastName: " + contact.LastName);
+                    Console.WriteLine("City: " + contact.City);
+                    Console.WriteLine("Zipcode: " + contact.Zip);
+                    Console.WriteLine("PhoneNmuber: " + contact.PhoneNumber);
+                }
+            }
+            foreach (var data in contacts)
+            {
+                using (var writer = new StreamWriter(Importfilepath))
+                using (var csvImport = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csvImport.WriteRecords<Contact>(contacts);
                 }
             }
         }
