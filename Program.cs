@@ -51,6 +51,12 @@ namespace AddressBookPracticeProblem
                     case 12:
                         person.SortPersonName();
                         break;
+                    case 13:
+                        person.SortbyCityName();
+                        break;
+                    case 14:
+                        person.SortbyZipcode();
+                        break;
                 }
                 Console.WriteLine("------------------------------");
             }
