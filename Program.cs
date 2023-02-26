@@ -42,6 +42,9 @@ namespace AddressBookPracticeProblem
                     case 9:
                         person.SearchPersonByCity();
                         break;
+                    case 10:
+                        person.ViewPersonsByCity();
+                        break;
                 }
                 Console.WriteLine("------------------------------");
             }
