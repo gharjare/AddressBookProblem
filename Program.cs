@@ -63,6 +63,9 @@ namespace AddressBookPracticeProblem
                     case 16:
                         person.ReadAndWriteCSVFile();
                         break;
+                    case 17:
+                        person.ReadJSONFile();
+                        break;
                 }
             }
                 Console.WriteLine("------------------------------");

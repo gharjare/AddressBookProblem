@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Formats.Asn1;
@@ -264,8 +265,8 @@ namespace AddressBookPracticeProblem
         }
         public void ReadAndWriteCSVFile()
         {
-            string exportfilepath = @"E:\C#\AddressBookAssignmentProblem\AddressBookAssignmentProblem\NewFolder\contact.csv";
-            string Importfilepath = @"E:\C#\AddressBookAssignmentProblem\AddressBookAssignmentProblem\NewFolder\contact.csv";
+            string exportfilepath = @"C:\Users\Achal\source\repos\AddressBookPracticeProblem\AddressBookPracticeProblem\Contact.Csv";
+            string Importfilepath = @"C: \Users\Achal\source\repos\AddressBookPracticeProblem\AddressBookPracticeProblem\Contact.Csv";
             using (var record = new StreamReader(exportfilepath))
             using (var csv = new CsvReader(record, CultureInfo.InvariantCulture))
             {
@@ -286,6 +287,17 @@ namespace AddressBookPracticeProblem
                 {
                     csvImport.WriteRecords<Contact>(contacts);
                 }
+            }
+           
+        }
+        public void ReadJSONFile()
+        {
+            string Jsonfilepath = @"C:\Users\Achal\source\repos\AddressBookPracticeProblem\AddressBookPracticeProblem\Person.json";
+            var Json = File.ReadAllText(Jsonfilepath);
+            this.contacts = JsonConvert.DeserializeObject<List<Contact>>(Json);
+            foreach (var data in contacts)
+            {
+                Console.WriteLine(data.FirstName + " " + data.LastName + " " + data.PhoneNumber + " " + data.City + " " + data.Zip);
             }
         }
     }
